@@ -1,0 +1,11 @@
+# saídas de compilação e workspace do STM32CubeIDE
+Debug/
+Release/
+.metadata/
+RemoteSystemsTempFiles/
+*.o
+*.d
+*.elf
+*.map
+*.su
+*.cyclo
