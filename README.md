@@ -19,6 +19,7 @@ Projetos usados nas aulas de STM32 da disciplina, prontos para importar no STM32
 | [`aula02_avr_arm`](aula02_avr_arm) | 02 — Do AVR ao ARM Cortex-M | Arquivos C usados para comparar o assembly gerado para o ATmega328P e para o Cortex-M33 (não é um projeto do CubeIDE) | — |
 | [`aula03_gpio`](aula03_gpio) | 03 — GPIO | Programa de teste dos exemplos da aula: configuração dos pinos externos com HAL e com registradores, valores de `MODER`/`PUPDR` impressos pela serial, contador binário em 4 LEDs com uma única escrita no `BSRR`, botões com debounce sem bloqueio e medição de ciclos do toggle (HAL × registradores) | 4 LEDs e 1 botão (abaixo) |
 | [`aula04_depuracao`](aula04_depuracao) | 04 — Depuração no STM32CubeIDE | Programa da aula de depuração: variáveis para Live Expressions e SWV, um erro proposital em `calcula_media()`, mensagens pelo ITM e uma divisão por zero opcional (`DEMO_HARDFAULT`) para o Fault Analyzer | 4 LEDs (opcional) |
+| [`trabalho_depuracao_semaforo`](trabalho_depuracao_semaforo) | Trabalho — Caça aos bugs no semáforo | Semáforo de carros (LEDs da placa) com botão de pedestre (B1) e semáforo de pedestre (LEDs externos). **O programa tem quatro defeitos de propósito**: encontre cada um com o depurador, seguindo o enunciado do trabalho | 2 LEDs (PE9 vermelho, PE11 verde) |
 
 ## Ferramentas
 
@@ -37,7 +38,7 @@ Os projetos já trazem a pasta `Drivers` (HAL, CMSIS e BSP), então **compilam s
    ```
 
 2. Abra o STM32CubeIDE e escolha um workspace (pode ser a mesma pasta).
-3. **File → Import… → General → Existing Projects into Workspace → Next**. Em *Select root directory*, escolha a pasta do repositório: os três projetos aparecem na lista. Deixe **desmarcado** *Copy projects into workspace* e clique em **Finish**.
+3. **File → Import… → General → Existing Projects into Workspace → Next**. Em *Select root directory*, escolha a pasta do repositório: os projetos aparecem na lista. Deixe **desmarcado** *Copy projects into workspace* e clique em **Finish**.
 4. Selecione o projeto e compile (`Ctrl+B`).
 5. Ligue a placa pelo USB-C do ST-LINK (CN1) e use **Run → Run** para gravar, ou **Run → Debug** (`F11`) para depurar.
 6. Para ver as mensagens da serial, abra um terminal (PuTTY, Tera Term, monitor serial do VS Code…) na porta **STMicroelectronics STLink Virtual COM Port**, a **115200 bps, 8N1**.
