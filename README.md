@@ -20,6 +20,7 @@ Projetos usados nas aulas de STM32 da disciplina, prontos para importar no STM32
 | [`aula03_gpio`](aula03_gpio) | 03 — GPIO | Programa de teste dos exemplos da aula: configuração dos pinos externos com HAL e com registradores, valores de `MODER`/`PUPDR` impressos pela serial, contador binário em 4 LEDs com uma única escrita no `BSRR`, botões com debounce sem bloqueio e medição de ciclos do toggle (HAL × registradores) | 4 LEDs e 1 botão (abaixo) |
 | [`aula04_depuracao`](aula04_depuracao) | 04 — Depuração no STM32CubeIDE | Programa da aula de depuração: variáveis para Live Expressions e SWV, um erro proposital em `calcula_media()`, mensagens pelo ITM e uma divisão por zero opcional (`DEMO_HARDFAULT`) para o Fault Analyzer | 4 LEDs (opcional) |
 | [`trabalho_depuracao_semaforo`](trabalho_depuracao_semaforo) | Trabalho — Caça aos bugs no semáforo | Semáforo de carros (LEDs da placa) com botão de pedestre (B1) e semáforo de pedestre (LEDs externos). **O programa tem quatro defeitos de propósito**: encontre cada um com o depurador, seguindo o enunciado do trabalho | 2 LEDs (PE9 vermelho, PE11 verde) |
+| [`aula05_adc_pwm`](aula05_adc_pwm) | 05 — ADC e PWM | ADC1 lendo o potenciômetro no A0 (PA6) por polling e PWM de 1 kHz no TIM1 (CH1 a CH4 nos 4 LEDs externos). Cinco exemplos escolhidos com `#define EXEMPLO`: leitura em mV, média de 16 leituras, duty de 10/50/90 %, *fade* e dimmer (potenciômetro → brilho do PE9) | 4 LEDs e 1 potenciômetro de 10 kΩ (abaixo) |
 
 ## Ferramentas
 
@@ -60,6 +61,18 @@ Os LEDs são ligados com resistor de **330 Ω** ao GND (pino → resistor → an
 | GND | — | CN10 pino 5 ou CN7 pino 8 |
 
 > Os pinos do STM32H563 trabalham com **3,3 V**. Não ligue 5 V nas saídas.
+
+## Montagem para a aula 05
+
+Os mesmos 4 LEDs das aulas 03 e 04 (agora acionados pelo TIM1, em função alternativa AF1) e um potenciômetro de **10 kΩ**:
+
+| Potenciômetro | Ligação | Conector (Zio) |
+|---|---|---|
+| Extremo 1 | AVDD (3,3 V) | CN10 pino 1 |
+| Extremo 2 | AGND | CN10 pino 3 |
+| Cursor | A0 / PA6 (ADC1_INP3) | CN9 pino 1 |
+
+> O potenciômetro **não** pode ser ligado no 5 V: a entrada analógica suporta no máximo 3,3 V.
 
 ## Aula 02: comparando o assembly
 
